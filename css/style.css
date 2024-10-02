@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+/* Fondos por estación */
+.container.primavera {
+    background-image: url('img/primavera.jpg');
+}
+
+.container.verano {
+    background-image: url('img/verano.jpg');
+}
+
+.container.otoño {
+    background-image: url('img/otoño.jpg');
+}
+
+.container.invierno {
+    background-image: url('img/invierno.jpg');
+}
+
+/* otoño y primavera*/
+.container.otoño, .container.primavera {
+    h1 {
+    color: rgb(49, 25, 145);
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px whitesmoke;
+    }
+}
+
+/* verano e invierno */
+.container.invierno, .container.verano {
+    h1 {
+    color:  rgb(251, 255, 0);
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgb(44, 27, 27);
+    }
+}
+
+.container.container.invierno, .container.primavera, .container.verano, .container.otoño {
+    label {
+        color: rgb(229, 255, 0);
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgb(49, 25, 145);
+        font-weight: bold;
+    } 
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: calc(100% - 24px);
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+.weather-card {
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.weather-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.temp-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.temp {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.details p {
+    font-size: 16px;
+    color: #666;
+}
+
+.details p strong {
+    color: #333;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+    background-color: #ffb3b3;
+    color: #b30000;
+    border: 1px solid #b30000;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+}
