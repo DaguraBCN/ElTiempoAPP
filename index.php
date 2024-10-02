@@ -21,16 +21,21 @@ if ($_POST) {
         if ($datos['cod'] == 200) {
             $descripcion = $datos["weather"][0]["description"];
             $icono = $datos["weather"][0]["icon"];
-            $temperaturaActual = $datos["main"]["temp"];
-            $sensacionReal = $datos["main"]["feels_like"];
+            $temperaturaActual = round($datos["main"]["temp"]);
+            $sensacionReal = round($datos["main"]["feels_like"]);
+            $temperaturaMin = round($datos["main"]["temp_min"]);
+            $temperaturaMax = round($datos["main"]["temp_max"]);
             $humedad = $datos["main"]["humidity"];
-            $puntoRocio = $datos["main"]["temp"];
+            $puntoRocio = round($datos["main"]["temp"]);
             $presion = $datos["main"]["pressure"];
             $nubosidad = $datos["clouds"]["all"];
             $viento = $datos["wind"]["speed"];
             $rafagasViento = $datos["wind"]["deg"];
             $visibilidad = $datos["visibility"] / 1000; // Convertir de metros a kilómetros
             $techoNubes = $datos["clouds"]["all"];
+            $nivelMar = $datos["main"]["sea_level"];
+            $amanecer = date('H:i',$datos["sys"]["sunrise"]);
+            $atardecer = date('H:i', $datos["sys"]["sunset"]);
             $fecha = date('l, d F Y H:i');
         } else {
             // Si no se encuentra la ciudad o hay error
@@ -90,13 +95,14 @@ $estacion = obtenerEstacion();
                 <p><?= $fecha ?></p>
                 <div class="weather-info">
                     <div class="temp-icon">
-                        <img src="https://www.imelcf.gob.pa/wp-content/plugins/location-weather/assets/images/icons/weather-icons/<?= $icono ?>.svg" alt="Icono del tiempo">
+                        <img src="img/<?= $icono ?>.svg" alt="Icono del tiempo">
                         <span class="temp"><?= $temperaturaActual ?>°C</span>
                     </div>
                     <div class="details">
                         <p><strong>Estado del cielo:</strong> <?= ucfirst($descripcion) ?></p>
                         <p><strong>Sensación Real:</strong> <?= $sensacionReal ?>°C</p>
-                        <!-- <p><strong>Índice UV Máx:</strong> <?= $indiceUV ?></p> -->
+                        <p><strong>Temperatura Mín.:</strong> <?= $temperaturaMin ?>°C</p>
+                        <p><strong>Temperatura Máx.:</strong> <?= $temperaturaMax ?>°C</p>
                         <p><strong>Ráfagas de viento:</strong> <?= $rafagasViento ?> km/h</p>
                         <p><strong>Humedad:</strong> <?= $humedad ?>%</p>
                         <p><strong>Punto de Rocío:</strong> <?= $puntoRocio ?>°C</p>
@@ -104,6 +110,8 @@ $estacion = obtenerEstacion();
                         <p><strong>Nubosidad:</strong> <?= $nubosidad ?>%</p>
                         <p><strong>Visibilidad:</strong> <?= $visibilidad ?> km</p>
                         <p><strong>Techo de nubes:</strong> <?= $techoNubes ?> m</p>
+                        <p><strong>Salida del Sol:</strong> <?= $amanecer ?></p>
+                        <p><strong>Puesta del Sol:</strong> <?= $atardecer ?></p>
                     </div>
                 </div>
             </div>
