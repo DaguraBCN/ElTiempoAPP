@@ -110,7 +110,15 @@ $estacion = obtenerEstacion();
                         <p><strong>Nubosidad:</strong> <?= $nubosidad ?>%</p>
                         <p><strong>Visibilidad:</strong> <?= $visibilidad ?> km</p>
                         <p><strong>Techo de nubes:</strong> <?= $techoNubes ?> m</p>
+                    </div>
+                </div>                  
+                <div class="sun-info">
+                    <div class="sun-item">
+                        <img src="img/sunrise.svg" alt="Icono de salida del sol">
                         <p><strong>Salida del Sol:</strong> <?= $amanecer ?></p>
+                    </div>
+                    <div class="sun-item">
+                        <img src="img/sunset.svg" alt="Icono de puesta del sol">
                         <p><strong>Puesta del Sol:</strong> <?= $atardecer ?></p>
                     </div>
                 </div>

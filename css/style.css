@@ -142,3 +142,29 @@ button:hover {
     margin-top: 20px;
     font-weight: bold;
 }
+
+.sun-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.sun-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.sun-item img {
+    width: 40px; /* Ajustar el tamaño del ícono */
+    height: 40px;
+}
+
+.sun-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.sun-item p strong {
+    color: #333;
+}
