@@ -37,6 +37,7 @@ if ($_POST) {
             $amanecer = date('H:i',$datos["sys"]["sunrise"]);
             $atardecer = date('H:i', $datos["sys"]["sunset"]);
             $fecha = date('l, d F Y H:i');
+            $year = date('Y');
         } else {
             // Si no se encuentra la ciudad o hay error
             $error = "No existen datos para la ciudad solicitada.";
@@ -95,7 +96,7 @@ $estacion = obtenerEstacion();
                 <p><?= $fecha ?></p>
                 <div class="weather-info">
                     <div class="temp-icon">
-                        <img src="img/<?= $icono ?>.svg" alt="Icono del tiempo">
+                        <img src="img/<?= $icono ?>.svg" alt="<?= $descripcion ?>">
                         <span class="temp"><?= $temperaturaActual ?>°C</span>
                     </div>
                     <div class="details">
@@ -127,5 +128,9 @@ $estacion = obtenerEstacion();
     </div>
 
 </body>
+<footer>
+    <!-- <p>&copy Dagura (<?php echo $year; ?>)</p> -->
+    <!-- <p>Datos de Openweather</p> -->
+</footer>
 
 </html>
