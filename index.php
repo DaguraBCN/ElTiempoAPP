@@ -1,12 +1,16 @@
 <?php
+$anyo = date('Y');
+
 if ($_POST) {
     $ciudad = $_POST["ciudad"];
     $ciudad = trim($ciudad);
     $ciudad = urlencode($ciudad);
-    $API_KEY = "57dd0d67b602215d88c9f993d422a09b";
+    // $API_KEY = "57dd0d67b602215d88c9f993d422a09b";
+    $API_KEY = "2773a9b09a08c0d8fb33c6a7b7edbae0";
     $units = "metric";
     $lang = "es";
     $URL = "https://api.openweathermap.org/data/2.5/weather?q=$ciudad&appid=$API_KEY&units=$units&lang=$lang";
+    
 
     // Obtener los datos de la API y silenciar errores con @
     $stringRespuesta = @file_get_contents($URL);
@@ -37,7 +41,6 @@ if ($_POST) {
             $amanecer = date('H:i',$datos["sys"]["sunrise"]);
             $atardecer = date('H:i', $datos["sys"]["sunset"]);
             $fecha = date('l, d F Y H:i');
-            $year = date('Y');
         } else {
             // Si no se encuentra la ciudad o hay error
             $error = "No existen datos para la ciudad solicitada.";
@@ -81,7 +84,7 @@ $estacion = obtenerEstacion();
             <h1>¿Qué tiempo hace?</h1>
         </div>
         <form method="POST">
-            <label for="ciudad" class="container otoño">Introduce una ciudad:</label>
+            <label for="ciudad" class="container <?= $estacion ?>">Introduce una ciudad:</label>
             <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad, País" required>
             <button type="submit">Buscar</button>
         </form>
@@ -124,13 +127,12 @@ $estacion = obtenerEstacion();
                     </div>
                 </div>
             </div>
+            <div>
+                <br>
+                <label for="ciudad" class="container <?= $estacion ?>">&copy Dagura <?= $anyo ?>    Datos de Openweather</label>
+            </div>
         <?php endif; ?>
     </div>
-
 </body>
-<footer>
-    <!-- <p>&copy Dagura (<?php echo $year; ?>)</p> -->
-    <!-- <p>Datos de Openweather</p> -->
-</footer>
 
 </html>

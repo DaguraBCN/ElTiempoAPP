@@ -61,7 +61,7 @@ body {
     }
 }
 
-.container.container.invierno, .container.primavera, .container.verano, .container.otoño {
+.container.invierno, .container.primavera, .container.verano, .container.otoño {
     label {
         color: rgb(229, 255, 0);
         margin-bottom: 20px;
